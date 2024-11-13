@@ -50,4 +50,15 @@ int main() {
         cout << "Queue:" << endl;
         if (!tollQueue.empty()) {
             for (const Car &car : tollQueue) {
-                car.print(
+                car.print();
+            }
+        } else {
+            cout << "Empty" << endl;
+        }
+        cout << endl;
+    }
+
+    cout << "This simulation ran " << cycle << " cycles until the queue was empty." << endl;
+
+    return 0;
+}
