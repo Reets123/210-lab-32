@@ -42,3 +42,12 @@ int main() {
         } else { // 45% probability 
             Car newCar;
             tollQueue.push_back(newCar);
+            cout << "Time: " << cycle << " Operation: Joined lane: ";
+            newCar.print();
+        }
+
+        // Display current queue after the operation
+        cout << "Queue:" << endl;
+        if (!tollQueue.empty()) {
+            for (const Car &car : tollQueue) {
+                car.print(
