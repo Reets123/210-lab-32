@@ -30,3 +30,15 @@ int main() {
 
     int cycle = 0;
     while (!tollQueue.empty()) {
+         cycle++;
+        int operationType = rand() % 100; // random value between 0-99
+
+        // Determine operation based on probabilities
+        if (operationType < 55) { // 55% probability 
+            Car paidCar = tollQueue.front();
+            tollQueue.pop_front(); // Car pays and leaves
+            cout << "Time: " << cycle << " Operation: Car paid: ";
+            paidCar.print();
+        } else { // 45% probability 
+            Car newCar;
+            tollQueue.push_back(newCar);
