@@ -31,3 +31,9 @@ public:
     }
 
 };
+
+const vector<string> Car::manufacturers = {"Toyota", "Honda", "Ford", "Chevrolet", "Volkswagen", 
+                                            "Nissan", "BMW", "Mercedes", "Tesla", "Lexus", 
+                                            "Skoda", "Volvo"};
+
+#endif
