@@ -23,7 +23,7 @@ int main() {
     }
 
     cout << "Initial queue:" << endl;
-    for (const Car &car : tolQueue) {
+    for (const Car &car : tollQueue) {
         car.print();
     }
     cout << endl;
