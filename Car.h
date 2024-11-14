@@ -2,6 +2,15 @@
 // COMSC-210 - Ibrahim Alatig 
 // Car.h
 
+//        Car          
+// --------------------
+// - make: string      
+// - year: int        
+// - transponder: int  
+// ---------------------
+//  + Car()             
+//  + print(): void     
+
 #ifndef CAR_H
 #define CAR_H
 
