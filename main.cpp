@@ -10,6 +10,13 @@
 using namespace std;
 
 const int INITIAL_CAR_COUNT = 2;
+const int NUM_LANES = 4;
+const int SIMULATION_TIME = 20;
+
+// Probabilities
+const int PAY_PROBABILITY = 46;
+const int JOIN_PROBABILITY = 39;
+const int SWITCH_PROBABILITY = 15;
 
 void displayQueue(const deque<Car>& tollQueue) {
     if (tollQueue.empty()) {
