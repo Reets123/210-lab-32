@@ -25,7 +25,7 @@ private:
     static const string makes[];
 };
 
-const string Car::makes[] = {"Volkswagen", "Skoda", "Volvo", "Lexus", "Toyota"};
+const string Car::makes[] = {"Mercades", "Tesla", "Nissan", "Lexus", "Toyota"};
 
 Car::Car() {
     make = makes[rand() % (sizeof(makes) / sizeof(makes[0]))];

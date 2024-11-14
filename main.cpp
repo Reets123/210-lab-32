@@ -5,60 +5,66 @@
 #include <deque>
 #include <cstdlib>
 #include <ctime>
-#include "Car.h" // Include the Car class
+#include "Car.h"
 
 using namespace std;
 
-// Constants
 const int INITIAL_CAR_COUNT = 2;
-const int TOTAL_YEARS = 26; // 1999 to 2024
+
+void displayQueue(const deque<Car>& tollQueue) {
+    if (tollQueue.empty()) {
+        cout << "Queue:\n    Empty" << endl;
+    } else {
+        cout << "Queue:" << endl;
+        for (const Car& car : tollQueue) {
+            car.print();
+            cout << endl;
+        }
+    }
+}
 
 int main() {
-    deque<Car> tollQueue;
-
+    // Seed the random number generator
     srand(static_cast<unsigned int>(time(nullptr)));
 
+    deque<Car> tollQueue;
+
+    // Initialize the queue with a number of cars
     for (int i = 0; i < INITIAL_CAR_COUNT; ++i) {
         tollQueue.push_back(Car());
     }
 
+    // Display initial queue
     cout << "Initial queue:" << endl;
-    for (const Car &car : tollQueue) {
-        car.print();
-    }
+    displayQueue(tollQueue);
     cout << endl;
 
-    int cycle = 0;
+    int time = 1; // Start the time counter
+    int totalCycles = 0; // Count of total cycles
+
     while (!tollQueue.empty()) {
-         cycle++;
-        int operationType = rand() % 100; // random value between 0-99
+        totalCycles++;
+        int operation = rand() % 100; // Random number (0-99)
 
-        // Determine operation based on probabilities
-        if (operationType < 55) { // 55% probability 
-            Car paidCar = tollQueue.front();
-            tollQueue.pop_front(); // Car pays and leaves
-            cout << "Time: " << cycle << " Operation: Car paid: ";
-            paidCar.print();
-        } else { // 45% probability 
-            Car newCar;
-            tollQueue.push_back(newCar);
-            cout << "Time: " << cycle << " Operation: Joined lane: ";
-            newCar.print();
+        if (operation < 55) { // 55% chance 
+            cout << "Time: " << time << " Operation: Car paid: ";
+            tollQueue.front().print();
+            cout << endl;
+            tollQueue.pop_front(); 
+        } else { // 45% chance 
+            tollQueue.push_back(Car());
+            cout << "Time: " << time << " Operation: Joined lane: ";
+            tollQueue.back().print();
+            cout << endl;
         }
 
-        // Display current queue after the operation
-        cout << "Queue:" << endl;
-        if (!tollQueue.empty()) {
-            for (const Car &car : tollQueue) {
-                car.print();
-            }
-        } else {
-            cout << "Empty" << endl;
-        }
+        displayQueue(tollQueue);
         cout << endl;
+
+        time++; 
     }
 
-    cout << "This simulation ran " << cycle << " cycles until the queue was empty." << endl;
+    cout << "This simulation ran " << totalCycles << " cycles until the queue was empty." << endl;
 
     return 0;
 }
