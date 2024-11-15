@@ -58,17 +58,25 @@ int main() {
 
     for (int i = 0; i < NUM_LANES; ++i) {
         int numCars = rand() % 3 + 1; // Generate 1 to 3 cars
-        for (int j = 0; j < n
-
-    // Initialize the queue with a number of cars
-    for (int i = 0; i < INITIAL_CAR_COUNT; ++i) {
-        tollQueue.push_back(Car());
+        for (int j = 0; j < numCars; ++j) {
+            lanes[i].push_back(Car());
+        }
     }
 
     // Display initial queue
     cout << "Initial queue:" << endl;
-    displayQueue(tollQueue);
+    displayAllLanes(lanes);
     cout << endl;
+
+    for (int time = 1; time <= SIMULATION_TIME; ++time) {
+        cout << "Time: " << time << endl;
+
+        for (int laneIndex = 0; laneIndex < NUM_LANES; ++laneIndex) {
+            int operation = rand() % 100; // Random number (0-99)
+
+            
+
+
 
     int time = 1; // Start the time counter
     int totalCycles = 0; // Count of total cycles
