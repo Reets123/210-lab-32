@@ -32,6 +32,12 @@ void displayLane(int laneIndex, const deque<Car>& laneQueue) {
     }
 }
 
+void displayAllLanes(deque<Car> lanes[]) {
+    for (int i = 0; i < NUM_LANES; i++) {
+        displayLane(i, lanes[i]);
+    }
+}
+
 void displayQueue(const deque<Car>& tollQueue) {
     if (tollQueue.empty()) {
         cout << "Queue:\n    Empty" << endl;
@@ -48,7 +54,11 @@ int main() {
     // Seed the random number generator
     srand(static_cast<unsigned int>(time(nullptr)));
 
-    deque<Car> tollQueue;
+    deque<Car> lanes[NUM_LANES];
+
+    for (int i = 0; i < NUM_LANES; ++i) {
+        int numCars = rand() % 3 + 1; // Generate 1 to 3 cars
+        for (int j = 0; j < n
 
     // Initialize the queue with a number of cars
     for (int i = 0; i < INITIAL_CAR_COUNT; ++i) {
