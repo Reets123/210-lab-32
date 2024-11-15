@@ -18,6 +18,20 @@ const int PAY_PROBABILITY = 46;
 const int JOIN_PROBABILITY = 39;
 const int SWITCH_PROBABILITY = 15;
 
+void displayLane(int laneIndex, const deque<Car>& laneQueue) {
+    cout << "Lane " << (laneIndex + 1) << " Queue: ";
+    if (laneQueue.empty()) {
+        cout << "empty" << endl;
+    } else {
+        cout << endl;
+        for (const Car& car : laneQueue) {
+            cout << "        ";
+            car.print();
+            cout << endl;
+        }
+    }
+}
+
 void displayQueue(const deque<Car>& tollQueue) {
     if (tollQueue.empty()) {
         cout << "Queue:\n    Empty" << endl;
