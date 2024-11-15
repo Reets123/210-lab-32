@@ -83,7 +83,20 @@ int main() {
                 } else if (operation < (PAY_PROBABILITY + JOIN_PROBABILITY)) { 
                     lanes[laneIndex].push_back(Car());
                     cout << "Lane: " << (laneIndex + 1) << " Joined: ";
-                    lanes[laneI
+                    lanes[laneIndex].back().print();
+                    cout << endl;
+                } else { 
+                    int switchLaneIndex;
+                    do {
+                        switchLaneIndex = rand() % NUM_LANES;
+                    } while (switchLaneIndex == laneIndex);
+                    if (!lanes[laneIndex].empty()) {
+                        Car movedCar = lanes[laneIndex].back();
+                        lanes[laneIndex].pop_back();
+                        lanes[switchLaneIndex].push_back(movedCar);
+                        cout << "Lane: " << (laneIndex + 1) << " Switched: ";
+                        movedCar.print();
+                        cout << " to Lane: " << (sw
 
 
 
