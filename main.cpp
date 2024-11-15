@@ -74,7 +74,16 @@ int main() {
         for (int laneIndex = 0; laneIndex < NUM_LANES; ++laneIndex) {
             int operation = rand() % 100; // Random number (0-99)
 
-            
+             if (!lanes[laneIndex].empty()) {
+                if (operation < PAY_PROBABILITY) { // Car pays and leaves
+                    cout << "Lane: " << (laneIndex+ 1) << " Paid: ";
+                    lanes[laneIndex].front().print();
+                    cout << endl;
+                    lanes[laneIndex].pop_front();
+                } else if (operation < (PAY_PROBABILITY + JOIN_PROBABILITY)) { 
+                    lanes[laneIndex].push_back(Car());
+                    cout << "Lane: " << (laneIndex + 1) << " Joined: ";
+                    lanes[laneI
 
 
 
