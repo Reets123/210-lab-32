@@ -1,4 +1,4 @@
-// Lab 32: Toll Booth
+// Lab 33: Toll Booth
 // COMSC-210 - Ibrahim Alatig 
 
 #include <iostream>
