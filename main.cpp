@@ -116,34 +116,3 @@ int main() {
 
     return 0;
 }
-
-
-    int time = 1; // Start the time counter
-    int totalCycles = 0; // Count of total cycles
-
-    while (!tollQueue.empty()) {
-        totalCycles++;
-        int operation = rand() % 100; // Random number (0-99)
-
-        if (operation < 55) { // 55% chance 
-            cout << "Time: " << time << " Operation: Car paid: ";
-            tollQueue.front().print();
-            cout << endl;
-            tollQueue.pop_front(); 
-        } else { // 45% chance 
-            tollQueue.push_back(Car());
-            cout << "Time: " << time << " Operation: Joined lane: ";
-            tollQueue.back().print();
-            cout << endl;
-        }
-
-        displayQueue(tollQueue);
-        cout << endl;
-
-        time++; 
-    }
-
-    cout << "This simulation ran " << totalCycles << " cycles until the queue was empty." << endl;
-
-    return 0;
-}
