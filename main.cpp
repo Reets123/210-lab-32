@@ -96,7 +96,21 @@ int main() {
                         lanes[switchLaneIndex].push_back(movedCar);
                         cout << "Lane: " << (laneIndex + 1) << " Switched: ";
                         movedCar.print();
-                        cout << " to Lane: " << (sw
+                        cout << " to Lane: " << (switchLaneIndex + 1) << endl;
+                    }
+                }
+            } else { 
+                if (rand() % 2 == 0) {
+                    lanes[laneIndex].push_back(Car());
+                    cout << "Lane: " << (laneIndex + 1) << " Joined: ";
+                    lanes[laneIndex].back().print();
+                    cout << endl;
+                }
+            }
+        }
+
+        // Display all lanes after operations
+        displayAl
 
 
 
