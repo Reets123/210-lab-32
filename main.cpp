@@ -109,9 +109,13 @@ int main() {
             }
         }
 
-        // Display all lanes after operations
-        displayAl
+        // Display all lanes 
+        displayAllLanes(lanes);
+        cout << endl;
+    }
 
+    return 0;
+}
 
 
     int time = 1; // Start the time counter
